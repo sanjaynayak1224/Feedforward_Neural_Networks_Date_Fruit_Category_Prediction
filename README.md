@@ -38,7 +38,7 @@ The 34 features are grouped into three primary categories:
 The project follows a structured workflow to clean, preprocess, batch, train, and evaluate the neural network:
 
 <p align="center">
-  <img src="End_To_End_Pipeline.png" alt="End-to-End Pipeline" width="650">
+  <img src="End_To_End_Pipeline.png" alt="End-to-End Pipeline" width="600">
 </p>
 
 ### Behind the Scenes: How the Pipeline is Built
