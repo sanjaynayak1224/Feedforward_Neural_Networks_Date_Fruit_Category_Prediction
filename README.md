@@ -131,7 +131,7 @@ If you want to pull this down and run the notebook on your local machine, here i
 
 ```bash
 git clone <repository-url>
-cd Feedforward_Neural_Networks_Date_Fruit_Category_Prediciton
+cd Feedforward_Neural_Networks_Date_Fruit_Category_Prediction
 ```
 
 ### 2. Spin Up a Virtual Environment
