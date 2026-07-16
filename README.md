@@ -38,7 +38,7 @@ The 34 features are grouped into three primary categories:
 The project follows a structured workflow to clean, preprocess, batch, train, and evaluate the neural network:
 
 <p align="center">
-  <img src="End_To_End_Pipeline.png" alt="End-to-End Pipeline" width="480">
+  <img src="End_To_End_Pipeline.png" alt="End-to-End Pipeline" width="650">
 </p>
 
 ### Behind the Scenes: How the Pipeline is Built
@@ -62,7 +62,7 @@ To get the raw image-extracted feature values ready for PyTorch, I built a struc
 I built a Feedforward Artificial Neural Network (ANN) using PyTorch's `nn.Sequential` with the following layer dimensions:
 
 <p align="center">
-  <img src="Neural_Network_Architecture.png" alt="Neural Network Architecture" width="800">
+  <img src="Neural_Network_Architecture.png" alt="Neural Network Architecture" width="900">
 </p>
 
 The model is optimized using PyTorch's `CrossEntropyLoss` (which handles the softmax transformation internally) and the `Adam` optimizer (learning rate = 0.001).
