@@ -79,6 +79,25 @@ I built a Feedforward Artificial Neural Network (ANN) using PyTorch's `nn.Sequen
 - **Second Hidden Layer**: 64 nodes with a `ReLU` activation.
 - **Output Layer**: 7 nodes corresponding to the raw logits of the 7 varieties.
 
+```mermaid
+graph LR
+    subgraph Input ["Input Layer"]
+        In["34 Features (Morphological, Color, Texture)"]
+    end
+    subgraph Hidden1 ["First Hidden Layer"]
+        H1["Linear (34 ➔ 64)"] --> Act1["ReLU Activation"]
+    end
+    subgraph Hidden2 ["Second Hidden Layer"]
+        H2["Linear (64 ➔ 64)"] --> Act2["ReLU Activation"]
+    end
+    subgraph Output ["Output Layer"]
+        Out["Linear (64 ➔ 7 Logits)"]
+    end
+    In --> H1
+    Act1 --> H2
+    Act2 --> Out
+```
+
 The model is optimized using PyTorch's `CrossEntropyLoss` (which handles the softmax transformation internally) and the `Adam` optimizer (learning rate = 0.001).
 
 ### Training with Validation Checkpointing
