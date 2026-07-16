@@ -37,7 +37,9 @@ The 34 features are grouped into three primary categories:
 
 The project follows a structured workflow to clean, preprocess, batch, train, and evaluate the neural network:
 
-![End-to-End Pipeline](End_To_End_Pipeline.png)
+<p align="center">
+  <img src="End_To_End_Pipeline.png" alt="End-to-End Pipeline" width="480">
+</p>
 
 ### Behind the Scenes: How the Pipeline is Built
 
@@ -59,7 +61,9 @@ To get the raw image-extracted feature values ready for PyTorch, I built a struc
 
 I built a Feedforward Artificial Neural Network (ANN) using PyTorch's `nn.Sequential` with the following layer dimensions:
 
-![Neural Network Architecture](Neural_Network_Architecture.png)
+<p align="center">
+  <img src="Neural_Network_Architecture.png" alt="Neural Network Architecture" width="800">
+</p>
 
 The model is optimized using PyTorch's `CrossEntropyLoss` (which handles the softmax transformation internally) and the `Adam` optimizer (learning rate = 0.001).
 
@@ -67,7 +71,9 @@ The model is optimized using PyTorch's `CrossEntropyLoss` (which handles the sof
 
 I trained the model for **100 epochs**. At the end of each epoch, the model is run on the test dataset in evaluation mode to calculate validation loss. To avoid saving an overfitted model (where training loss continues to fall but validation loss rises), I implemented a checkpoint check: the script only saves the model weights to `best_model.pt` when the validation loss reaches a new historical minimum. After training, the best weights are loaded back for final evaluation.
 
-![Training & Validation Loss](Training_Validation_Loss.png)
+<p align="center">
+  <img src="Training_Validation_Loss.png" alt="Training & Validation Loss" width="800">
+</p>
 
 ---
 
@@ -75,11 +81,15 @@ I trained the model for **100 epochs**. At the end of each epoch, the model is r
 
 Here are the performance metrics recorded for the best checkpointed model (saved at Epoch 62):
 
-![Class-Wise Metrics](Class_Wise_Metrics.png)
+<p align="center">
+  <img src="Class_Wise_Metrics.png" alt="Class-Wise Metrics" width="650">
+</p>
 
 ### Confusion Matrix Heatmap
 
-![Confusion Matrix Heatmap](Confusion_Matrix_Heatmap.png)
+<p align="center">
+  <img src="Confusion_Matrix_Heatmap.png" alt="Confusion Matrix Heatmap" width="750">
+</p>
 
 ### 💡 What the numbers tell us
 
