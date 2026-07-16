@@ -35,24 +35,9 @@ The 34 features are grouped into three primary categories:
 
 ## 🔍 The Pipeline & Modeling Workflow
 
-The project follows a structured workflow to clean, preprocess, batch, train, and validate the neural network. Here is the general structure:
+The project follows a structured workflow to clean, preprocess, batch, train, and evaluate the neural network:
 
-```mermaid
-graph TD
-    A[Raw Date Fruit Dataset] --> B[Data Inspection & Imputation Check]
-    B --> C[Feature-Target Separation]
-    C --> D[Label Encoding for 7 Classes]
-    D --> E[80/20 Train-Test Split]
-    E --> F[Feature Scaling via StandardScaler]
-    F --> G[PyTorch Tensor Conversion]
-    G --> H[TensorDataset & DataLoader Batches]
-    G --> H[TensorDataset & DataLoader Batches]
-    H --> I[FNN Architecture Design]
-    I --> J[Model Training with CrossEntropyLoss & Adam]
-    J --> K[Validation & Best Model Saving]
-    K --> L[Evaluation on Test Dataset]
-    L --> M[Metric Reporting & Heatmap Visualization]
-```
+![End-to-End Pipeline](End_To_End_Pipeline.png)
 
 ### Behind the Scenes: How the Pipeline is Built
 
@@ -72,31 +57,9 @@ To get the raw image-extracted feature values ready for PyTorch, I built a struc
 
 ## 🏗️ Neural Network Architecture & Training
 
-I built a Feedforward Artificial Neural Network (ANN) using PyTorch's `nn.Sequential` with the following structure:
+I built a Feedforward Artificial Neural Network (ANN) using PyTorch's `nn.Sequential` with the following layer dimensions:
 
-- **Input Layer**: Accepts the 34 normalized morphological, color, and texture features.
-- **First Hidden Layer**: 64 nodes with a `ReLU` activation function to capture non-linear relationships.
-- **Second Hidden Layer**: 64 nodes with a `ReLU` activation.
-- **Output Layer**: 7 nodes corresponding to the raw logits of the 7 varieties.
-
-```mermaid
-graph LR
-    subgraph Input ["Input Layer"]
-        In["34 Features (Morphological, Color, Texture)"]
-    end
-    subgraph Hidden1 ["First Hidden Layer"]
-        H1["Linear (34 ➔ 64)"] --> Act1["ReLU Activation"]
-    end
-    subgraph Hidden2 ["Second Hidden Layer"]
-        H2["Linear (64 ➔ 64)"] --> Act2["ReLU Activation"]
-    end
-    subgraph Output ["Output Layer"]
-        Out["Linear (64 ➔ 7 Logits)"]
-    end
-    In --> H1
-    Act1 --> H2
-    Act2 --> Out
-```
+![Neural Network Architecture](Neural_Network_Architecture.png)
 
 The model is optimized using PyTorch's `CrossEntropyLoss` (which handles the softmax transformation internally) and the `Adam` optimizer (learning rate = 0.001).
 
@@ -104,7 +67,7 @@ The model is optimized using PyTorch's `CrossEntropyLoss` (which handles the sof
 
 I trained the model for **100 epochs**. At the end of each epoch, the model is run on the test dataset in evaluation mode to calculate validation loss. To avoid saving an overfitted model (where training loss continues to fall but validation loss rises), I implemented a checkpoint check: the script only saves the model weights to `best_model.pt` when the validation loss reaches a new historical minimum. After training, the best weights are loaded back for final evaluation.
 
-![Loss Comparison Curve](loss_comparison.png)
+![Training & Validation Loss](Training_Validation_Loss.png)
 
 ---
 
@@ -120,20 +83,11 @@ Here are the performance metrics recorded for the best checkpointed model (saved
 
 ### Class-Wise Metrics (Classification Report)
 
-| Variety              | Precision | Recall  | F1-Score | Support |
-| :------------------- | :-------: | :-----: | :------: | :-----: |
-| **BERHI**            |    92%    |   92%   |   92%    |   12    |
-| **DEGLET**           |    94%    |   80%   |   86%    |   20    |
-| **DOKOL**            |    98%    |   98%   |   98%    |   50    |
-| **IRAQI**            |    82%    |   90%   |   86%    |   10    |
-| **ROTANA**           |   100%    |   97%   |   99%    |   35    |
-| **SAFAVI**           |   100%    |  100%   |   100%   |   33    |
-| **SOGAY**            |    87%    |  100%   |   93%    |   20    |
-| **Weighted Average** |  **96%**  | **96%** | **96%**  | **180** |
+![Class-Wise Metrics](Class_Wise_Metrics.png)
 
 ### Confusion Matrix Heatmap
 
-![Confusion Matrix Heatmap](confusion_matrix.png)
+![Confusion Matrix Heatmap](Confusion_Matrix_Heatmap.png)
 
 ### 💡 What the numbers tell us
 
