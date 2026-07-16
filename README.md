@@ -75,14 +75,6 @@ I trained the model for **100 epochs**. At the end of each epoch, the model is r
 
 Here are the performance metrics recorded for the best checkpointed model (saved at Epoch 62):
 
-### Overall Performance
-
-- **Total Samples Evaluated**: 180
-- **Correct Predictions**: 172
-- **Accuracy Score**: **95.56%**
-
-### Class-Wise Metrics (Classification Report)
-
 ![Class-Wise Metrics](Class_Wise_Metrics.png)
 
 ### Confusion Matrix Heatmap
