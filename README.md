@@ -134,7 +134,7 @@ git clone https://github.com/sanjaynayak1224/Feedforward_Neural_Networks_Date_Fr
 cd Feedforward_Neural_Networks_Date_Fruit_Category_Prediction
 ```
 
-### 2. Spin Up a Virtual Environment
+### 2. Spin Up a Virtual Environment 
 
 - **On Windows (PowerShell):**
   ```powershell
