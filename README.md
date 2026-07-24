@@ -130,7 +130,7 @@ If you want to pull this down and run the notebook on your local machine, here i
 ### 1. Clone and Navigate
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/sanjaynayak1224/Feedforward_Neural_Networks_Date_Fruit_Category_Prediction.git
 cd Feedforward_Neural_Networks_Date_Fruit_Category_Prediction
 ```
 
